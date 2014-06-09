@@ -1,0 +1,28 @@
+This is a simple web app using node express and mongodb with restful apis
+What this web-app do:
+Store and retrive JSON data in a mongoDB collection using HTTP POST and HTTP GET
+Used ajax for data operations and update page with jQuery.
+Let see how to set this app.
+1.install node.js can be downloaded from  http://nodejs.org/
+2.install express- open node.js commonad prompt and type npm install -g express
+Download Mongodb from here http://www.mongodb.org/downloads and download your release as per your requirement. 
+Copy and extract this application some where in your pc.
+now open system commond prompt
+go to path where mongodb is installed like for me it is:
+C:\Program Files\MongoDB 2.6 Standard\bin
+so in cmd prompt type below commands 
+1.cd C:\Program Files\MongoDB 2.6 Standard\bin
+2.mongod --dbpath [path to 'userdata' folder in web-app eg. C:\Users\nitin.g6\Desktop\simpleapp\userdata] 
+open a new command prompt and type below commands
+1.cd C:\Program Files\MongoDB 2.6 Standard\bin
+2.mongo
+Now the db is up and running, type below command to start the application
+npm install
+
+application is running now which you can access from localhost:3000 in your browser
+
+
+
+
+
+

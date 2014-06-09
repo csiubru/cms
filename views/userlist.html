@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<HTML> 
+<HEAD> 
+<TITLE></TITLE> 
+</HEAD> 
+<BODY> 
+<div>
+<div style="width:50%;float:left;margin-right:30px">
+<TABLE id="userlist" name="userlist" BORDER="5px"   WIDTH="100%"   CELLPADDING="4" CELLSPACING="3">
+   <TR>
+      <TH COLSPAN="2"><BR><H3>User Details</H3>
+      </TH>
+   </TR>
+   <TR>
+      <TH>Username</TH>
+      <TH>Email</TH>
+   </TR>
+   <tbody>
+  
+   </tbody>
+</TABLE>
+</div>
+<div style="width:30%;float:left">
+  <div >
+    <form id="formadduser" method="post" action="/adduser" >
+	  <p align="center" font="bold" >Add new user</p>
+      <p align="center">
+        <input name="username" type="text"  placeholder="User Name" id="username" />
+      </p>
+      
+      <p align="center">
+        <input name="email" type="text" id="email" placeholder="Email" />
+      </p>
+      <div align="center">
+        <input type="submit" value="Submit" id="button-blue"/>
+      </div>
+    </form>
+  </div>
+  </div>
+ </div>
+ <script language="javascript" type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+ <script language="javascript" type="text/javascript" src='/javascripts/userlist.js'/></script>
+</BODY> 
+</HTML>
