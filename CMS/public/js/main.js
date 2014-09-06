@@ -2,10 +2,10 @@ var AppRouter = Backbone.Router.extend({
 
     routes: {
         ""                  : "home",
-        "wines"	: "list",
-        "wines/page/:page"	: "list",
-        "wines/add"         : "addWine",
-        "wines/:id"         : "wineDetails",
+        "courses"	: "list",
+        "courses/page/:page"	: "list",
+        "courses/add"         : "addCourse",
+        "courses/:id"         : "courseDetails",
         "about"             : "about"
     },
 
@@ -24,24 +24,24 @@ var AppRouter = Backbone.Router.extend({
 
 	list: function(page) {
         var p = page ? parseInt(page, 10) : 1;
-        var wineList = new WineCollection();
-        wineList.fetch({success: function(){
-            $("#content").html(new WineListView({model: wineList, page: p}).el);
+        var courseList = new CourseCollection();
+        courseList.fetch({success: function(){
+            $("#content").html(new CourseListView({model: courseList, page: p}).el);
         }});
         this.headerView.selectMenuItem('home-menu');
     },
 
-    wineDetails: function (id) {
-        var wine = new Wine({_id: id});
-        wine.fetch({success: function(){
-            $("#content").html(new WineView({model: wine}).el);
+    courseDetails: function (id) {
+        var course = new Course({_id: id});
+        course.fetch({success: function(){
+            $("#content").html(new CourseView({model: course}).el);
         }});
         this.headerView.selectMenuItem();
     },
 
-	addWine: function() {
-        var wine = new Wine();
-        $('#content').html(new WineView({model: wine}).el);
+	addCourse: function() {
+        var course = new Course();
+        $('#content').html(new CourseView({model: course}).el);
         this.headerView.selectMenuItem('add-menu');
 	},
 
@@ -55,7 +55,7 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-utils.loadTemplate(['HomeView', 'HeaderView', 'WineView', 'WineListItemView', 'AboutView'], function() {
+utils.loadTemplate(['HomeView', 'HeaderView', 'CourseView', 'CourseListItemView', 'AboutView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });

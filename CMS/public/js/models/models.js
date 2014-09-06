@@ -1,6 +1,6 @@
-window.Wine = Backbone.Model.extend({
+window.Course = Backbone.Model.extend({
 
-    urlRoot: "/wines",
+    urlRoot: "/courses",
 
     idAttribute: "_id",
 
@@ -53,10 +53,10 @@ window.Wine = Backbone.Model.extend({
     }
 });
 
-window.WineCollection = Backbone.Collection.extend({
+window.CourseCollection = Backbone.Collection.extend({
 
-    model: Wine,
+    model: Course,
 
-    url: "/wines"
+    url: "/courses"
 
 });
