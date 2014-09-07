@@ -12,8 +12,8 @@ window.CourseView = Backbone.View.extend({
     events: {
         "change"        : "change",
         "click .save"   : "beforeSave",
-        "click .delete" : "deleteCourse",
-        "drop #picture" : "dropHandler"
+        "click .delete" : "deleteCourse"
+//        "drop #picture" : "dropHandler"
     },
 
     change: function (event) {
@@ -36,7 +36,7 @@ window.CourseView = Backbone.View.extend({
     },
 
     beforeSave: function () {
-        var self = this;
+    //    var self = this;
         var check = this.model.validateAll();
         if (check.isValid === false) {
             utils.displayValidationErrors(check.messages);
@@ -69,21 +69,21 @@ window.CourseView = Backbone.View.extend({
             }
         });
         return false;
-    },
+    }
 
-    dropHandler: function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        var e = event.originalEvent;
-        e.dataTransfer.dropEffect = 'copy';
-        this.pictureFile = e.dataTransfer.files[0];
+  //  dropHandler: function (event) {
+  //      event.stopPropagation();
+  //      event.preventDefault();
+  //      var e = event.originalEvent;
+  //      e.dataTransfer.dropEffect = 'copy';
+  //      this.pictureFile = e.dataTransfer.files[0];
 
         // Read the image file from the local file system and display it in the img tag
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            $('#picture').attr('src', reader.result);
-        };
-        reader.readAsDataURL(this.pictureFile);
-    }
+  //      var reader = new FileReader();
+  //     reader.onloadend = function () {
+  //          $('#picture').attr('src', reader.result);
+  //     };
+  //      reader.readAsDataURL(this.pictureFile);
+  //  }
 
 });

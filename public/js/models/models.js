@@ -7,16 +7,16 @@ window.Course = Backbone.Model.extend({
     initialize: function () {
         this.validators = {};
 
-        this.validators.name = function (value) {
-            return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a name"};
+        this.validators.cid = function (value) {
+            return value.length > 0 ? {isValid: true} : {isValid: false, message: "ป้อนรหัสวิชา"};
         };
 
-        this.validators.grapes = function (value) {
-            return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a grape variety"};
+        this.validators.cnameT = function (value) {
+            return value.length > 0 ? {isValid: true} : {isValid: false, message: "ป้อนชื่อวิชา (ภาษาไทย)"};
         };
 
-        this.validators.country = function (value) {
-            return value.length > 0 ? {isValid: true} : {isValid: false, message: "You must enter a country"};
+        this.validators.cnameE = function (value) {
+            return value.length > 0 ? {isValid: true} : {isValid: false, message: "ป้อนชื่อวิชา (English)"};
         };
     },
 
@@ -43,13 +43,16 @@ window.Course = Backbone.Model.extend({
 
     defaults: {
         _id: null,
-        name: "",
-        grapes: "",
-        country: "USA",
-        region: "California",
-        year: "",
-        description: "",
-        picture: null
+        cid: "",
+        cnameT: "",
+        cnameE: "",
+        ccredit: "",
+        cgroup: "",
+        cpre1: "",
+        cpre2: "",
+        cdescript: ""
+        //ctext: ""
+
     }
 });
 

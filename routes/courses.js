@@ -15,8 +15,13 @@ db.open(function(err, db) {
                 console.log("The 'courses' collection doesn't exist. Creating it with sample data...");
                 populateDB();
             }
+            collection.ensureIndex({"cid": 1}, {unique: true, background:true, dropDups: true }, function() {});
+  //set index using cid as a primary key and check for duplicated
         });
+
     }
+
+
 });
 
 exports.findById = function(req, res) {
@@ -31,7 +36,7 @@ exports.findById = function(req, res) {
 
 exports.findAll = function(req, res) {
     db.collection('courses', function(err, collection) {
-        collection.find().toArray(function(err, items) {
+        collection.find({},{'sort':'cid'}).toArray(function(err, items) { //sorted result
             res.send(items);
         });
     });
